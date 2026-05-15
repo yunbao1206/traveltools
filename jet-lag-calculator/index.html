@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jet Lag Calculator - Estimate Recovery Time | TripCalc</title>
+    <meta name="description" content="Free jet lag calculator. Estimate your jet lag severity and recovery time based on time zones crossed. Get tips to minimize symptoms.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wiseclick.tools/travel-tools/jet-lag-calculator/">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://wiseclick.tools/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Travel Tools",
+                "item": "https://wiseclick.tools/travel-tools/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Jet Lag Calculator"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+                TripCalc
+            </a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <nav class="nav-links">
+                <a href="../">Tools</a>
+                <a href="../about/">About</a>
+                <a href="../privacy/">Privacy</a>
+                <a href="../terms/">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://wiseclick.tools/">Home</a>
+            <span>/</span>
+            <a href="https://wiseclick.tools/travel-tools/">Travel Tools</a>
+            <span>/</span>
+            <span>Jet Lag Calculator</span>
+        </nav>
+
+        <section class="calculator-section">
+            <h1>Jet Lag Calculator</h1>
+            <p class="subtitle">Estimate your jet lag severity and recovery time based on time zones crossed.</p>
+
+            <div class="calculator-card">
+                <div class="form-group">
+                    <label for="home-tz">Home Time Zone</label>
+                    <select id="home-tz" class="form-input"></select>
+                </div>
+                <div class="form-group">
+                    <label for="dest-tz">Destination Time Zone</label>
+                    <select id="dest-tz" class="form-input"></select>
+                </div>
+                <div class="form-group">
+                    <label for="direction">Travel Direction</label>
+                    <select id="direction" class="form-input">
+                        <option value="east">Eastbound</option>
+                        <option value="west">Westbound</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sleep">Typical Sleep Quality</label>
+                    <select id="sleep" class="form-input">
+                        <option value="good">Good</option>
+                        <option value="average" selected>Average</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+
+                <button onclick="calculateJetLag()" class="btn btn-primary">Calculate Jet Lag</button>
+            </div>
+
+            <div id="results" class="results-section" style="display:none;">
+                <h2>Your Jet Lag Estimate</h2>
+                <div class="result-card">
+                    <div class="result-highlight">
+                        <span class="result-label">Time Zones Crossed</span>
+                        <span id="tz-crossed" class="result-value">0</span>
+                    </div>
+                    <div class="result-highlight">
+                        <span class="result-label">Severity</span>
+                        <span id="severity" class="result-value">Mild</span>
+                    </div>
+                    <div class="result-highlight">
+                        <span class="result-label">Estimated Recovery</span>
+                        <span id="recovery" class="result-value">0 days</span>
+                    </div>
+                </div>
+
+                <div id="tips-section" class="tips-section">
+                    <h3>Tips to Minimize Jet Lag</h3>
+                    <ul id="tips-list" class="tips-list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-card">
+                <h2>Find Comfortable Hotels to Beat Jet Lag</h2>
+                <p>Rest well upon arrival. Book hotels with premium bedding, blackout curtains, and quiet rooms to help you recover faster.</p>
+                <a href="#AFFILIATE_LINK_PLACEHOLDER" class="btn btn-cta" rel="nofollow sponsored">Search Recovery-Friendly Hotels</a>
+            </div>
+        </section>
+
+        <section class="seo-content">
+            <h2>Understanding and Beating Jet Lag</h2>
+            <p>Jet lag, medically known as desynchronosis, occurs when your body's internal clock (circadian rhythm) is disrupted by rapid travel across multiple time zones. Your body expects daylight and darkness at certain times, and when that schedule shifts suddenly, it takes time to adjust.</p>
+            <h3>Why Eastbound Travel Is Harder</h3>
+            <p>Your natural circadian rhythm runs slightly longer than 24 hours, making it easier to stay up later than to fall asleep earlier. This is why flying east (which requires you to go to bed earlier in the new time zone) typically causes worse jet lag than flying west. Research shows eastbound travelers need roughly one day per time zone crossed to fully adjust, while westbound travelers adjust at about 70% of that rate.</p>
+            <h3>Factors That Affect Recovery</h3>
+            <p>Individual factors play a significant role in jet lag severity. Age, sleep quality, hydration, and overall health all influence how quickly you adapt. People who already struggle with sleep tend to experience longer recovery times. The number of time zones crossed is the primary factor, with severity generally classified as mild (1-3 zones), moderate (4-6 zones), or severe (7+ zones).</p>
+            <h3>Pre-Trip Preparation</h3>
+            <p>You can reduce jet lag before you even board the plane. Gradually shift your sleep schedule toward the destination time zone in the days leading up to your trip. Stay well-hydrated, avoid alcohol and caffeine during the flight, and try to sleep on the plane only if it's nighttime at your destination.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How long does jet lag usually last?</h3>
+                    <p>It depends on the number of time zones crossed and direction of travel. Eastbound travel typically requires about one day per time zone for full recovery, while westbound travel takes roughly 0.7 days per zone. Crossing 1-3 zones usually resolves in a day or two, while 7+ zones can take a week or more.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does flying north or south cause jet lag?</h3>
+                    <p>No. Jet lag is caused by crossing time zones (east-west travel), not by changes in latitude. A flight from New York to Buenos Aires covers a great distance but crosses few time zones, resulting in minimal jet lag.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can melatonin help with jet lag?</h3>
+                    <p>Studies suggest melatonin can help reset your circadian rhythm when taken at the appropriate time. For eastbound travel, taking melatonin in the early evening at your destination may help you fall asleep earlier. Always consult a healthcare provider before using supplements.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does travel direction really matter for jet lag?</h3>
+                    <p>Yes. Most people find westbound travel easier because it's simpler to stay up later than to force yourself to sleep earlier. Westbound recovery is typically about 30% faster than eastbound recovery for the same number of time zones crossed.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 WiseClick</p>
+            <div class="footer-links">
+                <a href="https://wiseclick.tools/">Portal</a>
+                <a href="https://wiseclick.tools/finance/">Finance</a>
+                <a href="https://wiseclick.tools/insurance/">Insurance</a>
+                <a href="https://wiseclick.tools/health/">Health</a>
+                <a href="https://wiseclick.tools/gaming/">Gaming</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Populate time zone selects
+        function populateTimeZones() {
+            const homeSelect = document.getElementById('home-tz');
+            const destSelect = document.getElementById('dest-tz');
+            for (let tz = -12; tz <= 12; tz++) {
+                const label = tz === 0 ? 'UTC' : (tz > 0 ? 'UTC+' + tz : 'UTC' + tz);
+                const optHome = document.createElement('option');
+                optHome.value = tz;
+                optHome.textContent = label;
+                if (tz === -5) optHome.selected = true;
+                homeSelect.appendChild(optHome);
+
+                const optDest = document.createElement('option');
+                optDest.value = tz;
+                optDest.textContent = label;
+                if (tz === 1) optDest.selected = true;
+                destSelect.appendChild(optDest);
+            }
+        }
+
+        function calculateJetLag() {
+            const homeTz = parseInt(document.getElementById('home-tz').value);
+            const destTz = parseInt(document.getElementById('dest-tz').value);
+            const direction = document.getElementById('direction').value;
+            const sleep = document.getElementById('sleep').value;
+
+            const zonesCrossed = Math.abs(destTz - homeTz);
+
+            // Severity
+            let severityText, severityClass;
+            if (zonesCrossed <= 3) {
+                severityText = 'Mild';
+                severityClass = 'severity-mild';
+            } else if (zonesCrossed <= 6) {
+                severityText = 'Moderate';
+                severityClass = 'severity-moderate';
+            } else {
+                severityText = 'Severe';
+                severityClass = 'severity-severe';
+            }
+
+            // Sleep factor
+            const sleepFactors = { good: 0.8, average: 1.0, poor: 1.3 };
+            const sleepFactor = sleepFactors[sleep];
+
+            // Recovery days
+            let recoveryDays;
+            if (direction === 'east') {
+                recoveryDays = zonesCrossed * sleepFactor;
+            } else {
+                recoveryDays = zonesCrossed * 0.7 * sleepFactor;
+            }
+            recoveryDays = Math.round(recoveryDays * 10) / 10;
+
+            // Display results
+            document.getElementById('tz-crossed').textContent = zonesCrossed;
+
+            const severityEl = document.getElementById('severity');
+            severityEl.textContent = severityText;
+            severityEl.className = 'result-value ' + severityClass;
+
+            const daysText = recoveryDays === 1 ? '1 day' : recoveryDays + ' days';
+            document.getElementById('recovery').textContent = zonesCrossed === 0 ? '0 days' : daysText;
+
+            // Tips
+            const tips = [];
+            if (zonesCrossed === 0) {
+                tips.push('No time zone change detected. Adjust your selections to see jet lag estimates.');
+            } else {
+                if (direction === 'east') {
+                    tips.push('Go to bed 30-60 minutes earlier each night for a few days before departure to pre-adjust your clock.');
+                    tips.push('Get bright light exposure in the morning at your destination to help shift your rhythm forward.');
+                    tips.push('Avoid napping upon arrival. Stay active until a reasonable local bedtime.');
+                } else {
+                    tips.push('Stay up a bit later than usual before departure to help shift your clock westward.');
+                    tips.push('Get bright light exposure in the evening at your destination to help delay your rhythm.');
+                    tips.push('A short nap (20-30 min) upon arrival is okay, but avoid long naps that can delay adaptation.');
+                }
+                tips.push('Stay hydrated throughout the flight. Drink water frequently and avoid alcohol and excess caffeine.');
+                if (zonesCrossed >= 7) {
+                    tips.push('For severe jet lag, consider consulting a doctor about melatonin supplementation to help reset your sleep cycle.');
+                }
+            }
+
+            const tipsList = document.getElementById('tips-list');
+            tipsList.innerHTML = '';
+            tips.forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                tipsList.appendChild(li);
+            });
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        populateTimeZones();
+    </script>
+</body>
+</html>
