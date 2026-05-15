@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packing List Generator - Custom Travel Packing Checklist | TripCalc</title>
+  <meta name="description" content="Generate a customized packing list based on your destination, trip duration, weather, and activities. Never forget essential items again.">
+  <meta name="keywords" content="packing list generator, travel packing checklist, trip packing list, vacation packing, business trip packing">
+  <link rel="canonical" href="https://trip.wiseclick.site/packing-list-generator/">
+  <meta property="og:title" content="Packing List Generator - Custom Travel Packing Checklist">
+  <meta property="og:description" content="Generate a customized packing list based on your destination, trip duration, weather, and activities.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trip.wiseclick.site/packing-list-generator/">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Packing List Generator",
+    "description": "Generate a customized packing list based on your destination, trip duration, weather, and activities",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I create a packing list for my trip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your destination type, trip duration, expected weather, and planned activities into the generator. It will create a customized checklist with the exact quantities of clothing, toiletries, and gear you need."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many outfits should I pack for a week-long trip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a 7-day trip, pack 8 pairs of underwear, 7 pairs of socks, 4-5 t-shirts, 3 pairs of pants, and 1 set of pajamas. Add activity-specific items like swimwear or formal wear as needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I never forget when packing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Essentials include: phone charger, travel adapter (for international trips), toiletries, medications, important documents (passport, ID, tickets), and a first aid kit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I pack differently for cold vs warm destinations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. For cold weather, prioritize thermal layers, a warm jacket, gloves, and a scarf. For warm weather, focus on lightweight clothing, sunscreen, sunglasses, and a hat."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trip.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Packing List Generator", "item": "https://trip.wiseclick.site/packing-list-generator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+        TripCalc
+      </a>
+      <nav class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>Packing List Generator</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>Packing List Generator</h1>
+      <p class="subtitle">Generate a customized packing list based on your destination, trip duration, weather, and activities.</p>
+
+      <div class="calc-tool">
+        <form class="calc-form" id="packing-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="destination">Destination Type</label>
+            <select id="destination">
+              <option value="beach">Beach</option>
+              <option value="city">City</option>
+              <option value="mountains">Mountains</option>
+              <option value="snow">Snow</option>
+              <option value="desert">Desert</option>
+              <option value="tropical">Tropical</option>
+              <option value="business">Business</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="duration">Trip Duration (days)</label>
+            <input type="number" id="duration" value="7" min="1" max="90">
+          </div>
+          <div class="form-group">
+            <label for="weather">Expected Weather</label>
+            <select id="weather">
+              <option value="hot">Hot</option>
+              <option value="warm">Warm</option>
+              <option value="mild">Mild</option>
+              <option value="cold">Cold</option>
+              <option value="freezing">Freezing</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Activities</label>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.25rem;">
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="swimming"> Swimming</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="hiking"> Hiking</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="dining"> Dining Out</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="business"> Business Meetings</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="photography"> Photography</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="sports"> Sports</label>
+            </div>
+          </div>
+          <button type="button" class="btn-calculate" onclick="generatePackingList()">Generate Packing List</button>
+        </form>
+
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Total Items</div>
+            <div class="value" id="total-items">0</div>
+          </div>
+          <div class="checklist-grid" id="checklist"></div>
+        </div>
+
+        <div class="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">&#127775;</div>
+            <h3>Shop Travel Essentials</h3>
+            <p>Get everything you need for your trip — luggage, packing cubes, adapters, and more.</p>
+            <p class="affiliate-disclosure">We may earn a commission from purchases made through this link.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" rel="nofollow sponsored">Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How to Pack Smart for Any Trip</h2>
+          <p>The key to stress-free travel starts with a well-organized packing list. Whether you're heading to a tropical beach or a snow-covered mountain, having the right items packed can make or break your trip.</p>
+          <h3>1. Start with the Essentials</h3>
+          <p>Every trip requires basics: enough underwear and socks for each day plus a spare, versatile clothing pieces you can mix and match, toiletries, phone chargers, and travel documents.</p>
+          <h3>2. Match Your Destination</h3>
+          <p>Beach and tropical destinations call for swimwear, sunscreen, and lightweight fabrics. Snow trips demand thermal layers, waterproof outerwear, and warm accessories. City trips benefit from comfortable walking shoes and smart-casual outfits.</p>
+          <h3>3. Consider Your Activities</h3>
+          <p>Plan outfits around what you'll actually do. Business meetings need formal attire. Hiking requires sturdy boots and moisture-wicking clothing. Photography trips need extra batteries and memory cards.</p>
+          <h3>4. Roll, Don't Fold</h3>
+          <p>Rolling clothes saves space and reduces wrinkles. Use packing cubes to organize by category — one for tops, one for bottoms, one for undergarments. Place heavier items at the bottom of your suitcase.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How many days in advance should I start packing?</h3>
+          <p>Start your packing list 3-5 days before departure. This gives you time to do laundry, buy missing items, and avoid last-minute panic packing.</p>
+          <h3>Should I overpack or underpack?</h3>
+          <p>Aim for just right. Overpacking leads to heavy bags and airline fees. Underpacking forces you to buy essentials at tourist prices. Use this generator to get the exact quantities you need.</p>
+          <h3>What should always go in my carry-on?</h3>
+          <p>Always pack medications, a change of clothes, important documents, electronics, and valuables in your carry-on. If your checked bag is delayed, you'll have the essentials.</p>
+          <h3>How do I pack for mixed weather?</h3>
+          <p>Layering is the answer. Pack lightweight base layers, a mid-weight insulating layer, and a waterproof outer shell. This combination handles most weather conditions without overpacking.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+        </svg>
+        <span>TripCalc</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="mailto:contact@wiseclick.site">Contact</a></li>
+      </ul>
+      <div class="cross-site-links"><span>More WiseClick Tools:</span><a href="https://wiseclick.site/" target="_blank" rel="noopener">Portal</a><a href="https://calc.wiseclick.site/" target="_blank" rel="noopener">Finance</a><a href="https://insure.wiseclick.site/" target="_blank" rel="noopener">Insurance</a><a href="https://fit.wiseclick.site/" target="_blank" rel="noopener">Health</a><a href="https://game.wiseclick.site/" target="_blank" rel="noopener">Gaming</a></div>
+      <p class="footer-copy">&copy; 2026 WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function generatePackingList() {
+      const dest = document.getElementById('destination').value;
+      const days = Math.max(1, parseInt(document.getElementById('duration').value) || 1);
+      const weather = document.getElementById('weather').value;
+      const checkboxes = document.querySelectorAll('#packing-form input[type="checkbox"]:checked');
+      const activities = Array.from(checkboxes).map(cb => cb.value);
+
+      const items = [];
+
+      // Base items
+      items.push({ name: 'Underwear', qty: days + 1 });
+      items.push({ name: 'Socks', qty: days });
+      items.push({ name: 'T-shirts', qty: Math.ceil(days / 2) + 1 });
+      items.push({ name: 'Pants/Shorts', qty: Math.ceil(days / 3) + 1 });
+      items.push({ name: 'Pajamas', qty: 1 });
+      items.push({ name: 'Toiletries set', qty: 1 });
+      items.push({ name: 'Phone charger', qty: 1 });
+      items.push({ name: 'Travel adapter', qty: 1 });
+
+      // Weather-based items
+      if (weather === 'hot' || weather === 'warm') {
+        items.push({ name: 'Sunscreen', qty: 1 });
+        items.push({ name: 'Sunglasses', qty: 1 });
+        items.push({ name: 'Hat', qty: 1 });
+      }
+      if (weather === 'cold' || weather === 'freezing') {
+        items.push({ name: 'Winter jacket', qty: 1 });
+        items.push({ name: 'Thermal layers', qty: 2 });
+        items.push({ name: 'Gloves', qty: 1 });
+        items.push({ name: 'Scarf', qty: 1 });
+        items.push({ name: 'Warm boots', qty: 1 });
+      }
+      if (weather === 'freezing') {
+        items.push({ name: 'Hand warmers', qty: 3 });
+      }
+
+      // Destination-based items
+      if (dest === 'beach' || dest === 'tropical') {
+        items.push({ name: 'Swimsuit', qty: 2 });
+        items.push({ name: 'Flip-flops', qty: 1 });
+        items.push({ name: 'Beach towel', qty: 1 });
+        if (!items.find(i => i.name === 'Sunscreen')) items.push({ name: 'Sunscreen', qty: 1 });
+        if (!items.find(i => i.name === 'Sunglasses')) items.push({ name: 'Sunglasses', qty: 1 });
+        if (!items.find(i => i.name === 'Hat')) items.push({ name: 'Hat', qty: 1 });
+      }
+      if (dest === 'snow') {
+        if (!items.find(i => i.name === 'Winter jacket')) items.push({ name: 'Winter jacket', qty: 1 });
+        if (!items.find(i => i.name === 'Thermal layers')) items.push({ name: 'Thermal layers', qty: 2 });
+        if (!items.find(i => i.name === 'Gloves')) items.push({ name: 'Gloves', qty: 1 });
+        if (!items.find(i => i.name === 'Scarf')) items.push({ name: 'Scarf', qty: 1 });
+        if (!items.find(i => i.name === 'Warm boots')) items.push({ name: 'Warm boots', qty: 1 });
+        if (!items.find(i => i.name === 'Hand warmers')) items.push({ name: 'Hand warmers', qty: 3 });
+      }
+      if (dest === 'mountains') {
+        items.push({ name: 'Hiking boots', qty: 1 });
+        items.push({ name: 'Water bottle', qty: 1 });
+        items.push({ name: 'Backpack', qty: 1 });
+        items.push({ name: 'Rain jacket', qty: 1 });
+        items.push({ name: 'First aid kit', qty: 1 });
+      }
+      if (dest === 'business') {
+        items.push({ name: 'Dress shoes', qty: 1 });
+        items.push({ name: 'Formal outfit', qty: Math.min(days, 3) });
+        items.push({ name: 'Laptop', qty: 1 });
+        items.push({ name: 'Business cards', qty: 1 });
+      }
+
+      // Activity-based items
+      if (activities.includes('swimming')) {
+        if (!items.find(i => i.name === 'Swimsuit')) items.push({ name: 'Swimsuit', qty: 1 });
+        items.push({ name: 'Goggles', qty: 1 });
+        items.push({ name: 'Waterproof bag', qty: 1 });
+      }
+      if (activities.includes('hiking')) {
+        if (!items.find(i => i.name === 'Hiking boots')) items.push({ name: 'Hiking boots', qty: 1 });
+        if (!items.find(i => i.name === 'Water bottle')) items.push({ name: 'Water bottle', qty: 1 });
+        if (!items.find(i => i.name === 'Backpack')) items.push({ name: 'Backpack', qty: 1 });
+        if (!items.find(i => i.name === 'Rain jacket')) items.push({ name: 'Rain jacket', qty: 1 });
+        if (!items.find(i => i.name === 'First aid kit')) items.push({ name: 'First aid kit', qty: 1 });
+      }
+      if (activities.includes('business')) {
+        if (!items.find(i => i.name === 'Dress shoes')) items.push({ name: 'Dress shoes', qty: 1 });
+        if (!items.find(i => i.name === 'Formal outfit')) items.push({ name: 'Formal outfit', qty: 2 });
+        if (!items.find(i => i.name === 'Laptop')) items.push({ name: 'Laptop', qty: 1 });
+        if (!items.find(i => i.name === 'Business cards')) items.push({ name: 'Business cards', qty: 1 });
+      }
+      if (activities.includes('photography')) {
+        items.push({ name: 'Camera', qty: 1 });
+        items.push({ name: 'Extra batteries', qty: 2 });
+        items.push({ name: 'Memory cards', qty: 2 });
+        items.push({ name: 'Tripod', qty: 1 });
+      }
+      if (activities.includes('sports')) {
+        items.push({ name: 'Athletic shoes', qty: 1 });
+        items.push({ name: 'Sports outfit', qty: 2 });
+      }
+      if (activities.includes('dining')) {
+        items.push({ name: 'Smart-casual outfit', qty: Math.min(Math.ceil(days / 3), 4) });
+      }
+
+      // Remove duplicates (keep higher qty)
+      const unique = {};
+      items.forEach(item => {
+        if (unique[item.name]) {
+          unique[item.name].qty = Math.max(unique[item.name].qty, item.qty);
+        } else {
+          unique[item.name] = { name: item.name, qty: item.qty };
+        }
+      });
+      const finalItems = Object.values(unique);
+
+      // Render
+      const totalQty = finalItems.reduce((sum, i) => sum + i.qty, 0);
+      document.getElementById('total-items').textContent = totalQty;
+
+      const checklist = document.getElementById('checklist');
+      checklist.innerHTML = finalItems.map(item =>
+        '<label class="checklist-item"><input type="checkbox">' +
+        (item.qty > 1 ? item.qty + 'x ' : '') + item.name + '</label>'
+      ).join('');
+
+      document.getElementById('results').classList.add('visible');
+    }
+  </script>
+</body>
+</html>
