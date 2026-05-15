@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Zone Converter - Compare Times Across Cities | TripCalc</title>
+  <meta name="description" content="Free time zone converter. Compare current times across multiple cities simultaneously. Perfect for planning international calls and travel.">
+  <meta name="keywords" content="time zone converter, world time converter, time difference calculator, international time, timezone comparison">
+  <link rel="canonical" href="https://trip.wiseclick.site/timezone-converter/">
+  <meta property="og:title" content="Time Zone Converter - Compare Times Across Cities">
+  <meta property="og:description" content="Free time zone converter. Compare current times across multiple cities simultaneously.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trip.wiseclick.site/timezone-converter/">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Time Zone Converter",
+    "description": "Compare current times across multiple cities simultaneously",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do time zones work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The world is divided into 24 time zones, each roughly 15 degrees of longitude wide. UTC (Coordinated Universal Time) is the reference point. Cities east of UTC are ahead in time, while cities west are behind."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best time to schedule an international call?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aim for overlapping business hours (9 AM to 5 PM) in both locations. Use this converter to find the overlap window between your cities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate jet lag recovery time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common rule is one day of recovery per time zone crossed. Traveling east tends to cause more severe jet lag than traveling west."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trip.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Time Zone Converter", "item": "https://trip.wiseclick.site/timezone-converter/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+        TripCalc
+      </a>
+      <nav class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>Time Zone Converter</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>Time Zone Converter</h1>
+      <p class="subtitle">Compare current times across multiple cities simultaneously. Perfect for planning international calls and travel.</p>
+
+      <div class="calc-tool">
+        <form class="calc-form" id="tz-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="your-time">Your Time</label>
+            <input type="time" id="your-time">
+          </div>
+          <div class="form-group">
+            <label for="your-tz">Your City / Timezone</label>
+            <select id="your-tz">
+              <option value="-5">New York (EST, UTC-5)</option>
+              <option value="-8">Los Angeles (PST, UTC-8)</option>
+              <option value="0">London (GMT, UTC+0)</option>
+              <option value="1">Paris (CET, UTC+1)</option>
+              <option value="4">Dubai (GST, UTC+4)</option>
+              <option value="5.5">Mumbai (IST, UTC+5:30)</option>
+              <option value="7">Bangkok (ICT, UTC+7)</option>
+              <option value="8">Shanghai (CST, UTC+8)</option>
+              <option value="9">Tokyo (JST, UTC+9)</option>
+              <option value="11">Sydney (AEST, UTC+11)</option>
+            </select>
+          </div>
+          <div class="form-group full-width">
+            <label>Compare With</label>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.25rem;">
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="-5" class="compare-cb"> New York</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="-8" class="compare-cb"> Los Angeles</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="0" class="compare-cb"> London</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="1" class="compare-cb"> Paris</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="4" class="compare-cb"> Dubai</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="5.5" class="compare-cb"> Mumbai</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="7" class="compare-cb"> Bangkok</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="8" class="compare-cb"> Shanghai</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="9" class="compare-cb"> Tokyo</label>
+              <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.85rem;font-weight:normal;text-transform:none;letter-spacing:0;"><input type="checkbox" value="11" class="compare-cb"> Sydney</label>
+            </div>
+          </div>
+          <button type="button" class="btn-calculate" onclick="convertTimezones()">Compare Time Zones</button>
+        </form>
+
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Cities Compared</div>
+            <div class="value" id="city-count">0</div>
+          </div>
+          <div class="tz-grid" id="tz-grid"></div>
+        </div>
+
+        <div class="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">&#9992;</div>
+            <h3>Book Flights at the Best Time</h3>
+            <p>Find the best flight deals across time zones. Compare prices and book at the right time for maximum savings.</p>
+            <p class="affiliate-disclosure">We may earn a commission from purchases made through this link.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" rel="nofollow sponsored">Search Flights</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>Understanding Time Zones for Travel</h2>
+          <p>Time zones are regions of the Earth that observe a uniform standard time. The system was proposed in the late 19th century to standardize timekeeping for railroads and has since become essential for global coordination.</p>
+          <h3>How Time Zone Offsets Work</h3>
+          <p>Each time zone is defined by its offset from UTC (Coordinated Universal Time). New York operates at UTC-5 during standard time, meaning it is 5 hours behind UTC. Tokyo at UTC+9 is 9 hours ahead.</p>
+          <h3>Daylight Saving Time</h3>
+          <p>Many regions shift their clocks forward by one hour during summer months. This means the actual offset can change seasonally. For example, New York shifts from UTC-5 (EST) to UTC-4 (EDT) during daylight saving time.</p>
+          <h3>Tips for Managing Time Zone Differences</h3>
+          <p>When scheduling across zones, always confirm which time zone a meeting time refers to. Use a converter like this one to visualize overlapping work hours. When traveling east, try to sleep earlier a few days before departure to pre-adjust.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Frequently Asked Questions</h2>
+          <h3>Which country has the most time zones?</h3>
+          <p>France holds the record with 12 time zones due to its overseas territories, followed by Russia with 11. The contiguous United States spans 4 time zones (Eastern, Central, Mountain, Pacific).</p>
+          <h3>What is UTC?</h3>
+          <p>UTC (Coordinated Universal Time) is the primary time standard by which the world regulates clocks and time. It is not a time zone but a reference point from which all time zones are calculated.</p>
+          <h3>How do I plan a meeting across multiple time zones?</h3>
+          <p>Identify the overlapping business hours (9 AM to 5 PM) for all participants. Use this converter to find the best window. If no overlap exists, consider rotating meeting times to share the inconvenience fairly.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+        </svg>
+        <span>TripCalc</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="mailto:contact@wiseclick.site">Contact</a></li>
+      </ul>
+      <div class="cross-site-links"><span>More WiseClick Tools:</span><a href="https://wiseclick.site/" target="_blank" rel="noopener">Portal</a><a href="https://calc.wiseclick.site/" target="_blank" rel="noopener">Finance</a><a href="https://insure.wiseclick.site/" target="_blank" rel="noopener">Insurance</a><a href="https://fit.wiseclick.site/" target="_blank" rel="noopener">Health</a><a href="https://game.wiseclick.site/" target="_blank" rel="noopener">Gaming</a></div>
+      <p class="footer-copy">&copy; 2026 WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cityNames = {
+      '-5': 'New York',
+      '-8': 'Los Angeles',
+      '0': 'London',
+      '1': 'Paris',
+      '4': 'Dubai',
+      '5.5': 'Mumbai',
+      '7': 'Bangkok',
+      '8': 'Shanghai',
+      '9': 'Tokyo',
+      '11': 'Sydney'
+    };
+
+    // Set default time to current time
+    (function() {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('your-time').value = hh + ':' + mm;
+    })();
+
+    function convertTimezones() {
+      const timeInput = document.getElementById('your-time').value;
+      if (!timeInput) { alert('Please enter a time.'); return; }
+
+      const homeOffset = parseFloat(document.getElementById('your-tz').value);
+      const [hours, minutes] = timeInput.split(':').map(Number);
+
+      // Calculate UTC time from home city
+      const utcMinutes = (hours * 60 + minutes) - (homeOffset * 60);
+
+      const compareCheckboxes = document.querySelectorAll('.compare-cb:checked');
+      const selectedOffsets = Array.from(compareCheckboxes).map(cb => parseFloat(cb.value));
+
+      // Build list: home city + selected
+      const allCities = [{ offset: homeOffset, isHome: true }];
+      selectedOffsets.forEach(offset => {
+        if (offset !== homeOffset) allCities.push({ offset: offset, isHome: false });
+      });
+
+      if (allCities.length === 1 && !selectedOffsets.length) {
+        alert('Please select at least one city to compare.');
+        return;
+      }
+
+      const grid = document.getElementById('tz-grid');
+      grid.innerHTML = '';
+
+      allCities.forEach(city => {
+        const cityMinutes = utcMinutes + (city.offset * 60);
+        const totalMinutes = ((cityMinutes % 1440) + 1440) % 1440;
+        const h = Math.floor(totalMinutes / 60);
+        const m = totalMinutes % 60;
+        const timeStr = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+
+        // Determine date offset
+        const dayOffset = Math.floor(cityMinutes / 1440);
+        const date = new Date();
+        date.setDate(date.getDate() + dayOffset);
+        const dateStr = date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+
+        const cityName = cityNames[String(city.offset)] || 'Unknown';
+        const utcLabel = city.offset >= 0 ? 'UTC+' + city.offset : 'UTC' + city.offset;
+
+        const card = document.createElement('div');
+        card.className = 'tz-card';
+        if (city.isHome) card.style.border = '2px solid var(--primary)';
+        card.innerHTML =
+          '<div class="city">' + cityName + (city.isHome ? ' (You)' : '') + '</div>' +
+          '<div class="time">' + timeStr + '</div>' +
+          '<div class="date">' + dateStr + ' &middot; ' + utcLabel + '</div>';
+        grid.appendChild(card);
+      });
+
+      document.getElementById('city-count').textContent = allCities.length;
+      document.getElementById('results').classList.add('visible');
+    }
+  </script>
+</body>
+</html>
