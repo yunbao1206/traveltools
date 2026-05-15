@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter - Real-Time Exchange Rates | TripCalc</title>
+  <meta name="description" content="Free currency converter with 150+ currencies. Get real-time exchange rates and plan your travel budget with accurate conversions.">
+  <meta name="keywords" content="currency converter, exchange rate calculator, money converter, forex calculator, travel money">
+  <link rel="canonical" href="https://trip.wiseclick.site/currency-converter/">
+  <meta property="og:title" content="Currency Converter - Real-Time Exchange Rates | TripCalc">
+  <meta property="og:description" content="Free currency converter with 150+ currencies. Get real-time exchange rates and plan your travel budget with accurate conversions.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Currency Converter",
+    "description": "Free currency converter with exchange rates for 150+ currencies",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How are currency exchange rates determined?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Exchange rates are determined by foreign exchange market supply and demand, influenced by inflation, interest rates, trade balances, and geopolitical events. Most currencies float freely, though some are pegged to another currency."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is the best place to exchange currency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Local banks and ATMs typically offer the best exchange rates with the lowest fees. Avoid airport exchange counters, which often charge 5-10% markups. Using a no-foreign-transaction-fee credit card is usually the cheapest option for travelers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I exchange money before traveling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is a good idea to have a small amount of local currency for immediate expenses like taxis or tips. For the rest, use a no-fee credit card or withdraw from local ATMs for better rates than pre-trip exchange counters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are foreign transaction fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Foreign transaction fees are charges applied by banks or card networks when you make a purchase in a foreign currency. They typically range from 1-3% of the transaction amount. Many travel credit cards waive these fees entirely."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trip.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Currency Converter", "item": "https://trip.wiseclick.site/currency-converter/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+        </svg>
+        TripCalc
+      </a>
+      <nav class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>Currency Converter</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>Currency Converter</h1>
+      <p class="subtitle">Convert between 20+ popular currencies with approximate exchange rates. Plan your travel budget with accurate conversions.</p>
+
+      <div class="calc-tool">
+        <form class="calc-form" id="converter-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" value="1000" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="from-currency">From Currency</label>
+            <select id="from-currency">
+              <option value="USD" selected>USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="CNY">CNY - Chinese Yuan</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+              <option value="CHF">CHF - Swiss Franc</option>
+              <option value="KRW">KRW - South Korean Won</option>
+              <option value="SGD">SGD - Singapore Dollar</option>
+              <option value="HKD">HKD - Hong Kong Dollar</option>
+              <option value="NOK">NOK - Norwegian Krone</option>
+              <option value="SEK">SEK - Swedish Krona</option>
+              <option value="MXN">MXN - Mexican Peso</option>
+              <option value="NZD">NZD - New Zealand Dollar</option>
+              <option value="THB">THB - Thai Baht</option>
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="BRL">BRL - Brazilian Real</option>
+              <option value="ZAR">ZAR - South African Rand</option>
+              <option value="TWD">TWD - Taiwan Dollar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="to-currency">To Currency</label>
+            <select id="to-currency">
+              <option value="USD">USD - US Dollar</option>
+              <option value="EUR" selected>EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="CNY">CNY - Chinese Yuan</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+              <option value="CHF">CHF - Swiss Franc</option>
+              <option value="KRW">KRW - South Korean Won</option>
+              <option value="SGD">SGD - Singapore Dollar</option>
+              <option value="HKD">HKD - Hong Kong Dollar</option>
+              <option value="NOK">NOK - Norwegian Krone</option>
+              <option value="SEK">SEK - Swedish Krona</option>
+              <option value="MXN">MXN - Mexican Peso</option>
+              <option value="NZD">NZD - New Zealand Dollar</option>
+              <option value="THB">THB - Thai Baht</option>
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="BRL">BRL - Brazilian Real</option>
+              <option value="ZAR">ZAR - South African Rand</option>
+              <option value="TWD">TWD - Taiwan Dollar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fee-type">Include Fee</label>
+            <select id="fee-type">
+              <option value="0">None (0%)</option>
+              <option value="2">ATM Withdrawal (2%)</option>
+              <option value="3">Exchange Bureau (3%)</option>
+              <option value="5">Airport Exchange (5%)</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="convertCurrency()">Convert</button>
+        </form>
+
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Converted Amount</div>
+            <div class="value" id="converted-amount">$0</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item">
+              <div class="label">Exchange Rate</div>
+              <div class="value" id="exchange-rate">-</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Amount Before Fees</div>
+              <div class="value" id="before-fees">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Fee Amount</div>
+              <div class="value" id="fee-amount">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Total After Fees</div>
+              <div class="value" id="after-fees">$0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">💳</div>
+            <h3>Get the Best Exchange Rates for Your Trip</h3>
+            <p>Travel with a card that charges no foreign transaction fees. Save 2-3% on every purchase abroad.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Compare Travel Cards</a>
+            <p class="affiliate-disclosure">We may earn a commission if you apply through our link. This does not affect our calculator results.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>Understanding Currency Exchange</h2>
+          <p>Currency exchange rates determine how much one country's money is worth in another's. These rates fluctuate constantly based on economic factors like inflation, interest rates, trade balances, and geopolitical events. When you travel internationally, understanding exchange rates helps you budget accurately and avoid overpaying for currency conversion.</p>
+          <p>Most exchange rates are quoted against the US Dollar (USD) as the world's primary reserve currency. To convert between two non-USD currencies, the standard method is to first convert to USD, then to the target currency. For example, to convert EUR to JPY, you multiply by the EUR/USD rate and then by the USD/JPY rate. This calculator handles that two-step conversion automatically.</p>
+          <p>Exchange fees can significantly impact how much local currency you receive. ATMs typically charge 2%, exchange bureaus around 3%, and airport counters up to 5% or more. The cheapest option is usually a credit card with no foreign transaction fees, which gives you the interbank rate with zero markup. If you need cash, withdraw from local ATMs in the destination country for the best rates.</p>
+          <p>Keep in mind that exchange rates shown here are approximate and may differ from the live market rate at the time of your transaction. Rates are updated periodically and are intended for planning purposes. Always verify current rates with your bank or a reliable financial source before making large exchanges.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Tips for Saving on Currency Exchange</h2>
+          <ul>
+            <li><strong>Use a no-foreign-transaction-fee card</strong> — This is usually the cheapest way to pay abroad, often giving you the interbank rate.</li>
+            <li><strong>Avoid airport exchange counters</strong> — They charge the highest fees, often 5-10% above the market rate.</li>
+            <li><strong>Withdraw local currency from ATMs</strong> — Choose to be charged in the local currency, not your home currency, to avoid dynamic currency conversion (DCC) markups.</li>
+            <li><strong>Compare rates before you travel</strong> — Check your bank's rates against online providers like Wise or Revolut.</li>
+            <li><strong>Exchange a small amount before you leave</strong> — Have enough for taxis and tips on arrival, but convert the rest at your destination for better rates.</li>
+            <li><strong>Watch for hidden fees</strong> — Some services advertise "no commission" but build the cost into a worse exchange rate.</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How are currency exchange rates determined?</h3>
+          <p>Exchange rates are determined by foreign exchange market supply and demand, influenced by inflation, interest rates, trade balances, and geopolitical events. Most currencies float freely, though some are pegged to another currency. Central banks may also intervene to stabilize their currency.</p>
+          <h3>Where is the best place to exchange currency?</h3>
+          <p>Local banks and ATMs typically offer the best exchange rates with the lowest fees. Avoid airport exchange counters, which often charge 5-10% markups. Using a no-foreign-transaction-fee credit card is usually the cheapest option for travelers.</p>
+          <h3>Should I exchange money before traveling?</h3>
+          <p>It is a good idea to have a small amount of local currency for immediate expenses like taxis or tips. For the rest, use a no-fee credit card or withdraw from local ATMs for better rates than pre-trip exchange counters.</p>
+          <h3>What are foreign transaction fees?</h3>
+          <p>Foreign transaction fees are charges applied by banks or card networks when you make a purchase in a foreign currency. They typically range from 1-3% of the transaction amount. Many travel credit cards waive these fees entirely, making them the best choice for international travel.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <div class="cross-site-links"><span>More WiseClick Tools:</span><a href="https://wiseclick.site/" target="_blank" rel="noopener">Portal</a><a href="https://calc.wiseclick.site/" target="_blank" rel="noopener">Finance</a><a href="https://insure.wiseclick.site/" target="_blank" rel="noopener">Insurance</a><a href="https://fit.wiseclick.site/" target="_blank" rel="noopener">Health</a><a href="https://game.wiseclick.site/" target="_blank" rel="noopener">Gaming</a></div>
+      <p class="footer-copy">&copy; 2026 WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  const rates = {
+    'USD': 1,
+    'EUR': 0.92,
+    'GBP': 0.79,
+    'JPY': 149.5,
+    'CNY': 7.24,
+    'AUD': 1.53,
+    'CAD': 1.36,
+    'CHF': 0.88,
+    'KRW': 1325,
+    'SGD': 1.34,
+    'HKD': 7.82,
+    'NOK': 10.7,
+    'SEK': 10.5,
+    'MXN': 17.1,
+    'NZD': 1.67,
+    'THB': 35.5,
+    'INR': 83.1,
+    'BRL': 4.97,
+    'ZAR': 18.6,
+    'TWD': 31.8
+  };
+
+  function convertCurrency() {
+    const amount = parseFloat(document.getElementById('amount').value);
+    const from = document.getElementById('from-currency').value;
+    const to = document.getElementById('to-currency').value;
+    const feePercent = parseFloat(document.getElementById('fee-type').value) / 100;
+
+    if (!amount || amount <= 0) return;
+
+    // Convert: from -> USD -> to
+    const amountInUSD = amount / rates[from];
+    const convertedAmount = amountInUSD * rates[to];
+    const feeAmount = convertedAmount * feePercent;
+    const totalAfterFees = convertedAmount - feeAmount;
+
+    // Exchange rate from -> to
+    const exchangeRate = rates[to] / rates[from];
+
+    const decimals = (to === 'JPY' || to === 'KRW') ? 0 : 2;
+    const fmt = v => v.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+
+    document.getElementById('converted-amount').textContent = fmt(convertedAmount) + ' ' + to;
+    document.getElementById('exchange-rate').textContent = '1 ' + from + ' = ' + fmt(exchangeRate) + ' ' + to;
+    document.getElementById('before-fees').textContent = fmt(convertedAmount) + ' ' + to;
+    document.getElementById('fee-amount').textContent = fmt(feeAmount) + ' ' + to;
+    document.getElementById('after-fees').textContent = fmt(totalAfterFees) + ' ' + to;
+
+    document.getElementById('results').classList.add('visible');
+  }
+
+  convertCurrency();
+  </script>
+</body>
+</html>
