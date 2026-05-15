@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Insurance Cost Estimator | TripCalc</title>
+    <meta name="description" content="Estimate travel insurance costs based on trip value, destination, age, and coverage type. Compare plans and find the best coverage.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wiseclick.tools/travel-tools/travel-insurance-estimator/">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://wiseclick.tools/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Travel Tools",
+                "item": "https://wiseclick.tools/travel-tools/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Travel Insurance Estimator"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+                TripCalc
+            </a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <nav class="nav-links">
+                <a href="../">Tools</a>
+                <a href="../about/">About</a>
+                <a href="../privacy/">Privacy</a>
+                <a href="../terms/">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://wiseclick.tools/">Home</a>
+            <span>/</span>
+            <a href="https://wiseclick.tools/travel-tools/">Travel Tools</a>
+            <span>/</span>
+            <span>Travel Insurance Estimator</span>
+        </nav>
+
+        <section class="calculator-section">
+            <h1>Travel Insurance Cost Estimator</h1>
+            <p class="subtitle">Estimate your travel insurance premium based on trip details and coverage level.</p>
+
+            <div class="calculator-card">
+                <div class="form-group">
+                    <label for="trip-cost">Trip Cost ($)</label>
+                    <input type="number" id="trip-cost" min="0" step="1" placeholder="Total prepaid expenses" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Trip Duration (days)</label>
+                    <input type="number" id="duration" min="1" step="1" value="7" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="age">Traveler Age</label>
+                    <input type="number" id="age" min="1" max="100" value="35" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="region">Destination Region</label>
+                    <select id="region" class="form-input">
+                        <option value="domestic">Domestic</option>
+                        <option value="europe" selected>Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="worldwide">Worldwide</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="coverage">Coverage Type</label>
+                    <select id="coverage" class="form-input">
+                        <option value="basic">Basic</option>
+                        <option value="comprehensive" selected>Comprehensive</option>
+                        <option value="cfar">Cancel For Any Reason (CFAR)</option>
+                    </select>
+                </div>
+
+                <button onclick="calculateInsurance()" class="btn btn-primary">Estimate Cost</button>
+            </div>
+
+            <div id="results" class="results-section" style="display:none;">
+                <h2>Your Estimated Premium</h2>
+                <div class="result-card">
+                    <div class="result-highlight">
+                        <span class="result-label">Estimated Premium</span>
+                        <span id="premium" class="result-value">$0</span>
+                    </div>
+                    <div class="result-highlight">
+                        <span class="result-label">Coverage Rate</span>
+                        <span id="rate" class="result-value">0%</span>
+                    </div>
+                </div>
+
+                <h3>Coverage Breakdown</h3>
+                <div id="breakdown" class="breakdown-list"></div>
+
+                <h3>What's Typically Covered</h3>
+                <div id="covered-list" class="covered-list"></div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-card">
+                <h2>Compare Travel Insurance Plans</h2>
+                <p>Get quotes from top travel insurance providers and find the right coverage at the best price for your next trip.</p>
+                <a href="#AFFILIATE_LINK_PLACEHOLDER" class="btn btn-cta" rel="nofollow sponsored">Compare Travel Insurance Quotes</a>
+            </div>
+        </section>
+
+        <section class="seo-content">
+            <h2>Do You Need Travel Insurance?</h2>
+            <p>Travel insurance protects your financial investment in a trip when unexpected events force you to cancel, interrupt, or seek medical care while traveling. For most trips, the cost of insurance is a small fraction of the total trip expense, but the protection it offers can be invaluable.</p>
+            <h3>When Travel Insurance Makes Sense</h3>
+            <p>If you have significant prepaid, non-refundable expenses (flights, hotels, tours), travel insurance is worth considering. It's especially important for international travel where your domestic health insurance may not cover medical emergencies. Trips involving adventure activities, cruises, or complex itineraries also benefit from coverage.</p>
+            <h3>Types of Coverage</h3>
+            <p>Basic plans typically cover trip cancellation, trip interruption, and emergency medical expenses. Comprehensive plans add baggage loss, travel delays, and higher medical limits. Cancel For Any Reason (CFAR) coverage provides the most flexibility, allowing you to cancel for reasons not covered by standard policies, though it costs more.</p>
+            <h3>What Affects the Cost</h3>
+            <p>Travel insurance premiums depend primarily on the total trip cost, your age, trip duration, destination, and coverage level. Older travelers typically pay more due to higher medical risk. Longer trips and more expensive destinations also increase premiums. The coverage type you select has the biggest impact on price, with CFAR plans costing roughly twice as much as basic coverage.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How much does travel insurance usually cost?</h3>
+                    <p>Travel insurance typically costs between 4% and 12% of your total trip cost, depending on coverage level. Basic plans run about 4-5%, comprehensive plans 6-8%, and Cancel For Any Reason (CFAR) coverage 8-12%. Your age, trip length, and destination also affect the final price.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is travel insurance worth it for domestic trips?</h3>
+                    <p>It depends on your situation. For domestic trips with flexible bookings and minimal prepaid expenses, you may not need it. However, if you have non-refundable flights, hotel bookings, or tour reservations, travel insurance can protect that investment. Domestic coverage is also typically less expensive than international coverage.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What does Cancel For Any Reason (CFAR) cover?</h3>
+                    <p>CFAR coverage allows you to cancel your trip for any reason at all, including reasons not covered by standard trip cancellation policies (like fear of traveling, work obligations, or simply changing your mind). It typically reimburses 50-75% of your prepaid costs and must be purchased within a certain window after your initial trip deposit.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does my credit card provide travel insurance?</h3>
+                    <p>Many premium travel credit cards include some travel protections, such as trip cancellation insurance, baggage delay coverage, and rental car insurance. However, coverage limits and exclusions vary significantly. Check your card's benefit guide carefully and compare it against a standalone policy before relying on it as your only protection.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 WiseClick</p>
+            <div class="footer-links">
+                <a href="https://wiseclick.tools/">Portal</a>
+                <a href="https://wiseclick.tools/finance/">Finance</a>
+                <a href="https://wiseclick.tools/insurance/">Insurance</a>
+                <a href="https://wiseclick.tools/health/">Health</a>
+                <a href="https://wiseclick.tools/gaming/">Gaming</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateInsurance() {
+            const tripCost = parseFloat(document.getElementById('trip-cost').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const age = parseInt(document.getElementById('age').value);
+            const region = document.getElementById('region').value;
+            const coverageType = document.getElementById('coverage').value;
+
+            if (!tripCost || tripCost <= 0) { alert('Please enter a valid trip cost.'); return; }
+            if (!duration || duration <= 0) { alert('Please enter a valid trip duration.'); return; }
+            if (!age || age <= 0) { alert('Please enter a valid traveler age.'); return; }
+
+            // Base rate by coverage type
+            let baseRateMin, baseRateMax;
+            switch (coverageType) {
+                case 'basic':
+                    baseRateMin = 0.04; baseRateMax = 0.05; break;
+                case 'comprehensive':
+                    baseRateMin = 0.06; baseRateMax = 0.08; break;
+                case 'cfar':
+                    baseRateMin = 0.08; baseRateMax = 0.12; break;
+            }
+
+            // Use midpoint of rate range
+            const baseRate = (baseRateMin + baseRateMax) / 2;
+            let premium = tripCost * baseRate;
+
+            // Age adjustment
+            let ageFactor, ageLabel;
+            if (age < 30) { ageFactor = 0.9; ageLabel = 'Young adult discount (0.9x)'; }
+            else if (age <= 50) { ageFactor = 1.0; ageLabel = 'Standard rate (1.0x)'; }
+            else if (age <= 65) { ageFactor = 1.2; ageLabel = 'Senior adjustment (1.2x)'; }
+            else { ageFactor = 1.5; ageLabel = 'Senior adjustment (1.5x)'; }
+            premium *= ageFactor;
+
+            // Duration adjustment
+            let durFactor, durLabel;
+            if (duration < 7) { durFactor = 0.8; durLabel = 'Short trip (0.8x)'; }
+            else if (duration <= 14) { durFactor = 1.0; durLabel = 'Standard duration (1.0x)'; }
+            else if (duration <= 30) { durFactor = 1.2; durLabel = 'Extended trip (1.2x)'; }
+            else { durFactor = 1.5; durLabel = 'Long-term trip (1.5x)'; }
+            premium *= durFactor;
+
+            // Region adjustment
+            let regionFactor, regionLabel;
+            switch (region) {
+                case 'domestic': regionFactor = 0.9; regionLabel = 'Domestic (0.9x)'; break;
+                case 'europe': regionFactor = 1.0; regionLabel = 'Europe (1.0x)'; break;
+                case 'asia': regionFactor = 1.1; regionLabel = 'Asia (1.1x)'; break;
+                case 'worldwide': regionFactor = 1.2; regionLabel = 'Worldwide (1.2x)'; break;
+            }
+            premium *= regionFactor;
+
+            premium = Math.round(premium * 100) / 100;
+            const effectiveRate = ((premium / tripCost) * 100).toFixed(1);
+
+            // Display results
+            document.getElementById('premium').textContent = '$' + premium.toFixed(2);
+            document.getElementById('rate').textContent = effectiveRate + '% of trip cost';
+
+            // Breakdown
+            const breakdownItems = [
+                { label: 'Trip Cost', value: '$' + tripCost.toFixed(2) },
+                { label: 'Coverage Type', value: coverageType === 'cfar' ? 'Cancel For Any Reason' : coverageType.charAt(0).toUpperCase() + coverageType.slice(1) },
+                { label: 'Base Rate', value: (baseRate * 100).toFixed(1) + '%' },
+                { label: 'Age Factor (' + age + ' yrs)', value: ageLabel },
+                { label: 'Duration Factor (' + duration + ' days)', value: durLabel },
+                { label: 'Region Factor', value: regionLabel },
+                { label: 'Estimated Premium', value: '$' + premium.toFixed(2), highlight: true }
+            ];
+
+            let breakdownHtml = '';
+            breakdownItems.forEach(item => {
+                const cls = item.highlight ? ' breakdown-item highlight' : ' breakdown-item';
+                breakdownHtml += '<div class="' + cls + '"><span>' + item.label + '</span><span>' + item.value + '</span></div>';
+            });
+            document.getElementById('breakdown').innerHTML = breakdownHtml;
+
+            // What's covered
+            const coveredItems = {
+                basic: [
+                    'Trip cancellation (covered reasons)',
+                    'Trip interruption',
+                    'Emergency medical expenses',
+                    'Emergency medical evacuation'
+                ],
+                comprehensive: [
+                    'Trip cancellation (covered reasons)',
+                    'Trip interruption',
+                    'Emergency medical expenses',
+                    'Emergency medical evacuation',
+                    'Baggage loss or delay',
+                    'Travel delay reimbursement',
+                    'Missed connection coverage',
+                    '24/7 travel assistance'
+                ],
+                cfar: [
+                    'Trip cancellation (any reason)',
+                    'Trip interruption',
+                    'Emergency medical expenses',
+                    'Emergency medical evacuation',
+                    'Baggage loss or delay',
+                    'Travel delay reimbursement',
+                    'Missed connection coverage',
+                    '24/7 travel assistance',
+                    'Cancel For Any Reason (50-75% reimbursement)'
+                ]
+            };
+
+            const typeKey = coverageType;
+            let coveredHtml = '';
+            coveredItems[typeKey].forEach(item => {
+                coveredHtml += '<div class="covered-item"><span class="check">&#10003;</span> ' + item + '</div>';
+            });
+            document.getElementById('covered-list').innerHTML = coveredHtml;
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
