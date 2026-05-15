@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Rewards Calculator - Maximize Your Points & Miles | TripCalc</title>
+  <meta name="description" content="Calculate the value of your credit card points and airline miles. Find the best redemption options for flights, hotels, and upgrades.">
+  <meta name="keywords" content="travel rewards calculator, credit card points value, airline miles value, points calculator, miles redemption value">
+  <link rel="canonical" href="https://trip.wiseclick.site/travel-rewards-calculator/">
+  <meta property="og:title" content="Travel Rewards Calculator - Maximize Your Points & Miles">
+  <meta property="og:description" content="Calculate the value of your credit card points and airline miles. Find the best redemption options.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trip.wiseclick.site/travel-rewards-calculator/">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Travel Rewards Calculator",
+    "description": "Calculate the value of your credit card points and airline miles",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much are airline miles worth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Airline miles are typically worth 1 to 3 cents per mile depending on how you redeem them. Economy flights average 1.5 cents per mile, while business class can reach 3 cents per mile or more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I redeem points for cash back or travel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Travel redemptions typically offer 20-50% more value than cash back. Transferring points to airline or hotel partners often yields the highest per-point value."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many miles do I need for a free flight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Domestic economy flights typically require 25,000-50,000 miles. International economy flights range from 30,000-80,000 miles, while business class can require 70,000-200,000+ miles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are transferable points?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Transferable points from programs like Chase Ultimate Rewards or Amex Membership Rewards can be moved to multiple airline and hotel partners, giving you flexibility and often the best redemption value."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trip.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Travel Rewards Calculator", "item": "https://trip.wiseclick.site/travel-rewards-calculator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+        TripCalc
+      </a>
+      <nav class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>Travel Rewards Calculator</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>Travel Rewards Calculator</h1>
+      <p class="subtitle">Calculate the value of your credit card points and airline miles. Find the best redemption options.</p>
+
+      <div class="calc-tool">
+        <form class="calc-form" id="rewards-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="balance">Points / Miles Balance</label>
+            <input type="number" id="balance" value="50000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="program">Program Type</label>
+            <select id="program">
+              <option value="airline">Airline Miles</option>
+              <option value="hotel">Hotel Points</option>
+              <option value="credit-card">Credit Card Points</option>
+              <option value="transferable">Transferable Points</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="redemption">Redemption Type</label>
+            <select id="redemption">
+              <option value="economy">Economy Flight</option>
+              <option value="business">Business Flight</option>
+              <option value="hotel-night">Hotel Night</option>
+              <option value="cash-back">Cash Back</option>
+              <option value="gift-card">Gift Card</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculateRewards()">Calculate Rewards Value</button>
+        </form>
+
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Total Reward Value</div>
+            <div class="value" id="total-value">$0</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item">
+              <div class="label">Per-Point Value</div>
+              <div class="value" id="per-point">0 cents</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Points Balance</div>
+              <div class="value" id="balance-display">0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Economy Flight Value</div>
+              <div class="value" id="economy-equiv">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Hotel Night Value</div>
+              <div class="value" id="hotel-equiv">$0</div>
+            </div>
+          </div>
+          <div id="suggestions" style="margin-top:1rem;"></div>
+        </div>
+
+        <div class="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">&#9733;</div>
+            <h3>Compare Travel Credit Cards</h3>
+            <p>Find the best travel credit card for your spending habits. Compare sign-up bonuses, earning rates, and redemption values.</p>
+            <p class="affiliate-disclosure">We may earn a commission from applications made through this link.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" rel="nofollow sponsored">Compare Cards</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How to Maximize Travel Rewards</h2>
+          <p>Travel rewards can significantly reduce your travel costs, but only if you understand how to extract maximum value from your points and miles.</p>
+          <h3>Know Your Point Values</h3>
+          <p>Not all points are created equal. Airline miles redeemed for business class flights can be worth 3 cents each, while the same miles redeemed for cash might only be worth 0.5 cents. Understanding the per-point value for each redemption option helps you choose wisely.</p>
+          <h3>Transfer for Maximum Value</h3>
+          <p>Transferable points (Chase Ultimate Rewards, Amex Membership Rewards, Citi ThankYou) are often the most valuable because you can move them to the airline or hotel partner offering the best deal at any given time.</p>
+          <h3>Book Award Flights Strategically</h3>
+          <p>The best redemptions come from business and first class international flights, where the per-mile value can exceed 5 cents. Domestic economy flights tend to offer the lowest per-mile value.</p>
+          <h3>Earning vs. Burning</h3>
+          <p>Focus on earning through sign-up bonuses (often 50,000-100,000 points) and category bonuses (3-5x on travel and dining). Everyday spending at 1x is less important than strategic sign-up bonuses.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Frequently Asked Questions</h2>
+          <h3>Do airline miles expire?</h3>
+          <p>Most US airline miles now have no expiration as long as you have any account activity within 24 months. Some international carriers still have expiration policies, so check your specific program.</p>
+          <h3>Is it better to use points or pay cash?</h3>
+          <p>Use points when the redemption value exceeds 1.5 cents per point. If you can book a flight for $200 or use 25,000 miles (0.8 cents each), paying cash is usually better. But if that same flight costs $500, the miles are worth 2 cents each — a great deal.</p>
+          <h3>How do transfer bonuses work?</h3>
+          <p>Credit card programs periodically offer transfer bonuses (e.g., 30% extra when transferring to a specific airline). This effectively increases your points balance by 30% for that transfer, making it an excellent time to book award travel.</p>
+          <h3>What is the minimum points needed for a free flight?</h3>
+          <p>Domestic economy saver awards typically start at 12,500-25,000 miles each way. International economy can be found for 30,000-60,000 miles round trip. Business class international awards generally require 100,000-200,000 miles.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+        </svg>
+        <span>TripCalc</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="mailto:contact@wiseclick.site">Contact</a></li>
+      </ul>
+      <div class="cross-site-links"><span>More WiseClick Tools:</span><a href="https://wiseclick.site/" target="_blank" rel="noopener">Portal</a><a href="https://calc.wiseclick.site/" target="_blank" rel="noopener">Finance</a><a href="https://insure.wiseclick.site/" target="_blank" rel="noopener">Insurance</a><a href="https://fit.wiseclick.site/" target="_blank" rel="noopener">Health</a><a href="https://game.wiseclick.site/" target="_blank" rel="noopener">Gaming</a></div>
+      <p class="footer-copy">&copy; 2026 WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function calculateRewards() {
+      const balance = Math.max(0, parseInt(document.getElementById('balance').value) || 0);
+      const program = document.getElementById('program').value;
+      const redemption = document.getElementById('redemption').value;
+
+      // Per-point values in dollars
+      const values = {
+        airline: { economy: 0.015, business: 0.03, 'hotel-night': 0.008, 'cash-back': 0.005, 'gift-card': 0.008 },
+        hotel: { economy: 0.008, business: 0.008, 'hotel-night': 0.008, premium: 0.012, 'cash-back': 0.005, 'gift-card': 0.006 },
+        'credit-card': { economy: 0.015, business: 0.015, 'hotel-night': 0.01, 'cash-back': 0.01, 'gift-card': 0.01 },
+        transferable: { economy: 0.018, business: 0.018, 'hotel-night': 0.012, 'cash-back': 0.01, 'gift-card': 0.01 }
+      };
+
+      // Hotel has special premium handling for hotel-night redemption
+      let perPoint;
+      if (program === 'hotel' && redemption === 'hotel-night') {
+        perPoint = 0.012; // premium hotel value
+      } else {
+        perPoint = values[program][redemption] || 0.01;
+      }
+
+      const totalValue = balance * perPoint;
+      const economyValue = balance * (values[program].economy || 0.015);
+      const hotelValue = balance * 0.012;
+
+      document.getElementById('total-value').textContent = '$' + totalValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      document.getElementById('per-point').textContent = (perPoint * 100).toFixed(2) + ' cents';
+      document.getElementById('balance-display').textContent = balance.toLocaleString();
+      document.getElementById('economy-equiv').textContent = '$' + economyValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      document.getElementById('hotel-equiv').textContent = '$' + hotelValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+      // Suggestions
+      const suggestions = [];
+      if (totalValue > 0) {
+        const economyFlights = Math.floor(totalValue / 350);
+        if (economyFlights > 0) suggestions.push('Equivalent to ' + economyFlights + ' domestic economy flight' + (economyFlights > 1 ? 's' : '') + ' (~$350 each)');
+        const hotelNights = Math.floor(totalValue / 150);
+        if (hotelNights > 0) suggestions.push('Equivalent to ' + hotelNights + ' hotel night' + (hotelNights > 1 ? 's' : '') + ' (~$150 each)');
+        if (program === 'airline' && balance >= 60000) suggestions.push('You have enough for a round-trip business class flight to Europe');
+        if (program === 'transferable') suggestions.push('Tip: Transfer to airline partners for up to 50% more value');
+      }
+      const sugEl = document.getElementById('suggestions');
+      if (suggestions.length > 0) {
+        sugEl.innerHTML = '<h3 style="font-size:0.95rem;font-weight:600;margin-bottom:0.5rem;">Redemption Suggestions</h3>' +
+          suggestions.map(s => '<p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:0.25rem;">&bull; ' + s + '</p>').join('');
+      } else {
+        sugEl.innerHTML = '';
+      }
+
+      document.getElementById('results').classList.add('visible');
+    }
+  </script>
+</body>
+</html>
