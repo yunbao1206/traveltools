@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Cost Splitter - Divide Travel Expenses Fairly | TripCalc</title>
+    <meta name="description" content="Free trip cost splitter. Track shared expenses, calculate who owes whom, and settle up fairly after group travel.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wiseclick.tools/travel-tools/trip-cost-splitter/">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://wiseclick.tools/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Travel Tools",
+                "item": "https://wiseclick.tools/travel-tools/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Trip Cost Splitter"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+                TripCalc
+            </a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <nav class="nav-links">
+                <a href="../">Tools</a>
+                <a href="../about/">About</a>
+                <a href="../privacy/">Privacy</a>
+                <a href="../terms/">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://wiseclick.tools/">Home</a>
+            <span>/</span>
+            <a href="https://wiseclick.tools/travel-tools/">Travel Tools</a>
+            <span>/</span>
+            <span>Trip Cost Splitter</span>
+        </nav>
+
+        <section class="calculator-section">
+            <h1>Trip Cost Splitter</h1>
+            <p class="subtitle">Track shared expenses and calculate who owes whom after group travel.</p>
+
+            <div class="calculator-card">
+                <div class="form-group">
+                    <label for="travelers">Number of Travelers</label>
+                    <input type="number" id="travelers" min="1" max="10" value="3" class="form-input">
+                </div>
+
+                <h3>Add Expense</h3>
+                <div class="expense-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="exp-desc">Description</label>
+                            <input type="text" id="exp-desc" placeholder="e.g., Hotel room" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-amount">Amount ($)</label>
+                            <input type="number" id="exp-amount" min="0" step="0.01" placeholder="0.00" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-paid-by">Paid By</label>
+                            <select id="exp-paid-by" class="form-input"></select>
+                        </div>
+                    </div>
+                    <button onclick="addExpense()" class="btn btn-secondary">+ Add Expense</button>
+                </div>
+
+                <div id="expense-list" class="expense-list"></div>
+
+                <button onclick="calculateSplit()" class="btn btn-primary">Calculate Split</button>
+            </div>
+
+            <div id="results" class="results-section" style="display:none;">
+                <h2>Results</h2>
+                <div class="result-card">
+                    <div class="result-highlight">
+                        <span class="result-label">Total Expenses</span>
+                        <span id="total-expenses" class="result-value">$0.00</span>
+                    </div>
+                    <div class="result-highlight">
+                        <span class="result-label">Fair Share Per Person</span>
+                        <span id="fair-share" class="result-value">$0.00</span>
+                    </div>
+                </div>
+
+                <h3>Per Person Summary</h3>
+                <div id="person-summary" class="summary-grid"></div>
+
+                <h3>Settlements</h3>
+                <div id="settlements" class="settlement-list"></div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-card">
+                <h2>Book Your Group Trip and Save</h2>
+                <p>Find the best deals on flights, hotels, and vacation rentals for your next group adventure.</p>
+                <a href="#AFFILIATE_LINK_PLACEHOLDER" class="btn btn-cta" rel="nofollow sponsored">Compare Group Travel Deals</a>
+            </div>
+        </section>
+
+        <section class="seo-content">
+            <h2>How to Split Trip Costs Fairly</h2>
+            <p>Splitting travel expenses among a group doesn't have to be complicated. The key is to track every shared expense as it happens and let a calculator handle the math at the end.</p>
+            <p>The simplest method is to record who paid for each expense, add everything up, and then calculate each person's fair share (total divided by number of travelers). Anyone who paid more than their share is owed money, and anyone who paid less needs to pay the difference.</p>
+            <h3>The Settlement Method</h3>
+            <p>Our trip cost splitter uses the settlement method to minimize the number of transactions needed. Instead of every person paying back every other person individually, the algorithm matches people who overspent with people who underspent, resulting in the fewest possible payments to settle all debts.</p>
+            <p>This approach works well for any group size and handles uneven contributions gracefully. Whether one person booked the hotel and another paid for all the meals, you'll get a clear picture of who owes whom.</p>
+            <h3>Tips for Tracking Group Expenses</h3>
+            <p>Designate one person as the expense tracker for the trip, or use this calculator together at the end of each day. Keep receipts and note who paid for each item. For large group trips, consider having everyone chip in to a shared fund at the start and spending from that pool.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How does the trip cost splitter work?</h3>
+                    <p>Add each shared expense with the amount and who paid for it. The calculator totals all expenses, divides by the number of travelers to find the fair share, then determines the minimum number of payments needed to settle all balances.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if someone didn't pay for anything?</h3>
+                    <p>That's fine. If a traveler didn't pay for any expenses, their fair share will appear as an amount they owe. They simply pay that total to whoever overspent their share.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I split expenses unevenly?</h3>
+                    <p>This calculator uses an even split (equal shares). For uneven splits, you can run the calculator multiple times with different subgroups, or adjust the number of travelers to reflect how you want costs divided.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Should we settle up during or after the trip?</h3>
+                    <p>Either works. Tracking daily helps avoid a large pile of expenses at the end. But if you prefer, save all receipts and settle everything in one go after the trip using this calculator.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 WiseClick</p>
+            <div class="footer-links">
+                <a href="https://wiseclick.tools/">Portal</a>
+                <a href="https://wiseclick.tools/finance/">Finance</a>
+                <a href="https://wiseclick.tools/insurance/">Insurance</a>
+                <a href="https://wiseclick.tools/health/">Health</a>
+                <a href="https://wiseclick.tools/gaming/">Gaming</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let expenses = [];
+
+        function updatePaidByDropdown() {
+            const count = parseInt(document.getElementById('travelers').value) || 2;
+            const select = document.getElementById('exp-paid-by');
+            select.innerHTML = '';
+            for (let i = 1; i <= count; i++) {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = 'Person ' + i;
+                select.appendChild(opt);
+            }
+        }
+
+        document.getElementById('travelers').addEventListener('change', function() {
+            let v = parseInt(this.value);
+            if (v < 1) { this.value = 1; v = 1; }
+            if (v > 10) { this.value = 10; v = 10; }
+            updatePaidByDropdown();
+            renderExpenses();
+        });
+
+        function addExpense() {
+            const desc = document.getElementById('exp-desc').value.trim();
+            const amount = parseFloat(document.getElementById('exp-amount').value);
+            const paidBy = parseInt(document.getElementById('exp-paid-by').value);
+
+            if (!desc) { alert('Please enter a description.'); return; }
+            if (!amount || amount <= 0) { alert('Please enter a valid amount.'); return; }
+
+            expenses.push({ desc, amount, paidBy });
+            document.getElementById('exp-desc').value = '';
+            document.getElementById('exp-amount').value = '';
+            renderExpenses();
+        }
+
+        function removeExpense(index) {
+            expenses.splice(index, 1);
+            renderExpenses();
+        }
+
+        function renderExpenses() {
+            const list = document.getElementById('expense-list');
+            if (expenses.length === 0) {
+                list.innerHTML = '';
+                return;
+            }
+            let html = '<table class="expense-table"><thead><tr><th>Description</th><th>Amount</th><th>Paid By</th><th></th></tr></thead><tbody>';
+            expenses.forEach((exp, i) => {
+                html += '<tr><td>' + exp.desc + '</td><td>$' + exp.amount.toFixed(2) + '</td><td>Person ' + exp.paidBy + '</td><td><button onclick="removeExpense(' + i + ')" class="btn-remove">&times;</button></td></tr>';
+            });
+            html += '</tbody></table>';
+            list.innerHTML = html;
+        }
+
+        function calculateSplit() {
+            const numTravelers = parseInt(document.getElementById('travelers').value);
+            if (expenses.length === 0) { alert('Please add at least one expense.'); return; }
+
+            const total = expenses.reduce((sum, e) => sum + e.amount, 0);
+            const fairShare = total / numTravelers;
+
+            // Calculate how much each person paid
+            const paid = {};
+            for (let i = 1; i <= numTravelers; i++) paid[i] = 0;
+            expenses.forEach(e => { paid[e.paidBy] = (paid[e.paidBy] || 0) + e.amount; });
+
+            // Calculate balance: positive = owed money, negative = owes money
+            const balance = {};
+            for (let i = 1; i <= numTravelers; i++) {
+                balance[i] = paid[i] - fairShare;
+            }
+
+            // Build settlements
+            const debtors = [];
+            const creditors = [];
+            for (let i = 1; i <= numTravelers; i++) {
+                const b = Math.round(balance[i] * 100) / 100;
+                if (b < -0.01) debtors.push({ person: i, amount: -b });
+                else if (b > 0.01) creditors.push({ person: i, amount: b });
+            }
+
+            debtors.sort((a, b) => b.amount - a.amount);
+            creditors.sort((a, b) => b.amount - a.amount);
+
+            const settlements = [];
+            let di = 0, ci = 0;
+            while (di < debtors.length && ci < creditors.length) {
+                const amount = Math.min(debtors[di].amount, creditors[ci].amount);
+                const rounded = Math.round(amount * 100) / 100;
+                if (rounded > 0.01) {
+                    settlements.push({
+                        from: debtors[di].person,
+                        to: creditors[ci].person,
+                        amount: rounded
+                    });
+                }
+                debtors[di].amount -= amount;
+                creditors[ci].amount -= amount;
+                if (debtors[di].amount < 0.01) di++;
+                if (creditors[ci].amount < 0.01) ci++;
+            }
+
+            // Display results
+            document.getElementById('total-expenses').textContent = '$' + total.toFixed(2);
+            document.getElementById('fair-share').textContent = '$' + fairShare.toFixed(2);
+
+            let summaryHtml = '';
+            for (let i = 1; i <= numTravelers; i++) {
+                const p = paid[i] || 0;
+                const bal = balance[i];
+                const statusClass = bal >= -0.01 ? 'status-positive' : 'status-negative';
+                const statusText = bal >= -0.01
+                    ? 'Gets back $' + bal.toFixed(2)
+                    : 'Owes $' + (-bal).toFixed(2);
+                summaryHtml += '<div class="summary-card"><h4>Person ' + i + '</h4><p>Paid: $' + p.toFixed(2) + '</p><p class="' + statusClass + '">' + statusText + '</p></div>';
+            }
+            document.getElementById('person-summary').innerHTML = summaryHtml;
+
+            if (settlements.length === 0) {
+                document.getElementById('settlements').innerHTML = '<p class="settled-msg">Everyone is settled up!</p>';
+            } else {
+                let settleHtml = '';
+                settlements.forEach(s => {
+                    settleHtml += '<div class="settlement-row"><span class="from">Person ' + s.from + '</span><span class="arrow">&rarr; pays</span><span class="amount">$' + s.amount.toFixed(2) + '</span><span class="arrow">to &rarr;</span><span class="to">Person ' + s.to + '</span></div>';
+                });
+                document.getElementById('settlements').innerHTML = settleHtml;
+            }
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        updatePaidByDropdown();
+    </script>
+</body>
+</html>
