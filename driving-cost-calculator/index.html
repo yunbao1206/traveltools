@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driving Cost Calculator - True Road Trip Cost | TripCalc</title>
+  <meta name="description" content="Calculate the true cost of a road trip including gas, tolls, wear and tear, and overnight stays. Plan your driving budget accurately.">
+  <meta name="keywords" content="driving cost calculator, road trip cost, gas cost calculator, toll calculator, travel driving budget, true cost of driving">
+  <link rel="canonical" href="https://trip.wiseclick.site/driving-cost-calculator/">
+  <meta property="og:title" content="Driving Cost Calculator - True Road Trip Cost">
+  <meta property="og:description" content="Calculate the true cost of a road trip including gas, tolls, wear and tear, and overnight stays.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trip.wiseclick.site/driving-cost-calculator/">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Driving Cost Calculator",
+    "description": "Calculate the true cost of a road trip including gas, tolls, wear and tear",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a road trip cost per mile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The IRS standard mileage rate for 2025 is $0.70 per mile, which includes gas, depreciation, and maintenance. Your actual cost may vary based on vehicle fuel efficiency, gas prices, and toll roads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I estimate gas cost for a road trip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide your total trip distance by your vehicle's MPG to get gallons needed, then multiply by the current gas price per gallon. For example, a 500-mile trip at 25 MPG and $3.50/gallon costs $70 in gas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it cheaper to fly or drive?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For short trips (under 300 miles), driving is usually cheaper. For longer trips, factor in all driving costs (gas, tolls, hotels, food, wear) and compare to airfare plus airport transportation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is wear and tear cost per mile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wear and tear typically costs $0.10 to $0.20 per mile, covering tire wear, oil changes, depreciation, and maintenance. The IRS uses a combined rate that includes this along with fuel costs."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trip.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Driving Cost Calculator", "item": "https://trip.wiseclick.site/driving-cost-calculator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+        TripCalc
+      </a>
+      <nav class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>Driving Cost Calculator</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>Driving Cost Calculator</h1>
+      <p class="subtitle">Calculate the true cost of a road trip including gas, tolls, wear and tear, and overnight stays.</p>
+
+      <div class="calc-tool">
+        <form class="calc-form" id="driving-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="distance">Total Distance (miles)</label>
+            <input type="number" id="distance" value="500" min="1">
+          </div>
+          <div class="form-group">
+            <label for="mpg">Vehicle MPG</label>
+            <input type="number" id="mpg" value="25" min="1" step="0.5">
+          </div>
+          <div class="form-group">
+            <label for="gas-price">Gas Price per Gallon ($)</label>
+            <input type="number" id="gas-price" value="3.50" min="0.01" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="tolls">Toll Roads</label>
+            <select id="tolls">
+              <option value="0">None</option>
+              <option value="10" selected>Some (~$10)</option>
+              <option value="30">Many (~$30)</option>
+              <option value="60">Lots (~$60)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="overnights">Overnight Stops</label>
+            <input type="number" id="overnights" value="1" min="0">
+          </div>
+          <div class="form-group">
+            <label for="travelers">Number of Travelers</label>
+            <select id="travelers">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculateDrivingCost()">Calculate Trip Cost</button>
+        </form>
+
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Total Trip Cost</div>
+            <div class="value" id="total-cost">$0</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item">
+              <div class="label">Gas Cost</div>
+              <div class="value" id="gas-cost">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Tolls</div>
+              <div class="value" id="toll-cost">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Wear & Tear</div>
+              <div class="value" id="wear-cost">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Hotels</div>
+              <div class="value" id="hotel-cost">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Food</div>
+              <div class="value" id="food-cost">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Cost per Person</div>
+              <div class="value" id="per-person">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Cost per Mile</div>
+              <div class="value" id="per-mile">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Trip Duration</div>
+              <div class="value" id="trip-days">0 days</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">&#128663;</div>
+            <h3>Compare Rental Car Deals</h3>
+            <p>Find the best rental car rates for your road trip. Compare prices from major providers and save up to 30%.</p>
+            <p class="affiliate-disclosure">We may earn a commission from bookings made through this link.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" rel="nofollow sponsored">Compare Rental Cars</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>The True Cost of a Road Trip</h2>
+          <p>Most people underestimate road trip costs by only calculating gas. The true cost includes several categories that add up quickly over long distances.</p>
+          <h3>Fuel Costs</h3>
+          <p>The most obvious expense. Calculate it by dividing total distance by your vehicle's MPG, then multiplying by the gas price. Highway driving typically gets better mileage than city driving, so your actual MPG may be higher on road trips.</p>
+          <h3>Tolls</h3>
+          <p>Toll roads can add $10 to $100+ to your trip depending on the route. Major toll corridors include the Northeast (I-95), Florida Turnpike, and various bridges and tunnels. Consider toll-free alternatives, though they may add time.</p>
+          <h3>Wear and Tear</h3>
+          <p>Every mile adds depreciation, tire wear, and brings maintenance closer. The IRS allows approximately $0.15-0.21 per mile for wear and tear (excluding fuel). This is a real cost even if you don't feel it immediately.</p>
+          <h3>Food and Lodging</h3>
+          <p>Budget $40-50 per person per day for food on the road. Hotel costs average $100-150 per night depending on location. Camping can dramatically reduce lodging costs to $20-40 per night.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How much should I budget for a road trip?</h3>
+          <p>A good rule of thumb is $0.50-0.80 per mile for gas and wear, plus $120-150 per night for lodging, and $45 per person per day for food. A 1,000-mile trip for two people with one overnight typically costs $400-600 total.</p>
+          <h3>Is driving cheaper than flying?</h3>
+          <p>For trips under 400 miles with multiple travelers, driving is almost always cheaper. For solo travelers on long trips, flying is often more economical, especially when factoring in the time value.</p>
+          <h3>How can I save money on a road trip?</h3>
+          <p>Pack snacks and drinks, use gas apps to find the cheapest stations, avoid toll roads when time allows, book hotels in advance for better rates, and consider camping or budget motels for lodging.</p>
+          <h3>What is the IRS mileage rate?</h3>
+          <p>The IRS standard mileage rate for 2025 is $0.70 per mile for business use. This rate includes fuel, depreciation, maintenance, and insurance. For personal road trips, you can use this as a benchmark for total vehicle operating costs.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+        </svg>
+        <span>TripCalc</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="mailto:contact@wiseclick.site">Contact</a></li>
+      </ul>
+      <div class="cross-site-links"><span>More WiseClick Tools:</span><a href="https://wiseclick.site/" target="_blank" rel="noopener">Portal</a><a href="https://calc.wiseclick.site/" target="_blank" rel="noopener">Finance</a><a href="https://insure.wiseclick.site/" target="_blank" rel="noopener">Insurance</a><a href="https://fit.wiseclick.site/" target="_blank" rel="noopener">Health</a><a href="https://game.wiseclick.site/" target="_blank" rel="noopener">Gaming</a></div>
+      <p class="footer-copy">&copy; 2026 WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function calculateDrivingCost() {
+      const distance = Math.max(1, parseFloat(document.getElementById('distance').value) || 0);
+      const mpg = Math.max(1, parseFloat(document.getElementById('mpg').value) || 25);
+      const gasPrice = Math.max(0.01, parseFloat(document.getElementById('gas-price').value) || 3.50);
+      const tolls = parseFloat(document.getElementById('tolls').value) || 0;
+      const overnights = Math.max(0, parseInt(document.getElementById('overnights').value) || 0);
+      const travelers = Math.max(1, parseInt(document.getElementById('travelers').value) || 1);
+
+      const gasCost = (distance / mpg) * gasPrice;
+      const wearCost = distance * 0.15;
+      const hotelCost = overnights * 120;
+      const tripDays = Math.max(1, Math.ceil(distance / 400));
+      const foodCost = 45 * travelers * tripDays;
+      const totalCost = gasCost + tolls + wearCost + hotelCost + foodCost;
+      const perPerson = totalCost / travelers;
+      const perMile = totalCost / distance;
+
+      const fmt = (n) => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+      document.getElementById('total-cost').textContent = fmt(totalCost);
+      document.getElementById('gas-cost').textContent = fmt(gasCost);
+      document.getElementById('toll-cost').textContent = fmt(tolls);
+      document.getElementById('wear-cost').textContent = fmt(wearCost);
+      document.getElementById('hotel-cost').textContent = fmt(hotelCost);
+      document.getElementById('food-cost').textContent = fmt(foodCost);
+      document.getElementById('per-person').textContent = fmt(perPerson);
+      document.getElementById('per-mile').textContent = fmt(perMile);
+      document.getElementById('trip-days').textContent = tripDays + (tripDays === 1 ? ' day' : ' days');
+
+      document.getElementById('results').classList.add('visible');
+    }
+  </script>
+</body>
+</html>
