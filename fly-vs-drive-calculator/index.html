@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fly vs Drive Calculator - Compare Travel Costs | TripCalc</title>
+  <meta name="description" content="Should you fly or drive? Compare the true cost of flying vs driving including gas, tolls, parking, airfare, and time value.">
+  <meta name="keywords" content="fly or drive calculator, fly vs drive, travel cost comparison, road trip cost, flight cost comparison, driving vs flying">
+  <link rel="canonical" href="https://trip.wiseclick.site/fly-vs-drive-calculator/">
+  <meta property="og:title" content="Fly vs Drive Calculator - Compare Travel Costs | TripCalc">
+  <meta property="og:description" content="Should you fly or drive? Compare the true cost of flying vs driving including gas, tolls, parking, airfare, and time value.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Fly vs Drive Calculator",
+    "description": "Compare the true cost of flying versus driving for any trip",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it cheaper to fly or drive?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the distance, number of travelers, and current gas and airfare prices. For solo travelers on trips over 500 miles, flying is often cheaper. For families or groups, driving becomes more cost-effective because flight costs scale per person while driving costs stay roughly fixed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "At what distance is it better to fly than drive?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For solo travelers, flying usually becomes cheaper around 400-600 miles. For a family of four, the break-even point is often 800-1000 miles. Beyond that, factor in time value — a 12-hour drive versus a 4-hour flight experience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What hidden costs should I consider when driving?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beyond gas, factor in tolls (about $0.10 per mile), parking at your destination ($10-25/day), hotel stays for long drives ($80-120/night), extra meals on the road ($30-50/person/day), and vehicle wear and tear."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What hidden costs should I consider when flying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beyond airfare, factor in airport parking ($8-15/day), transportation to and from the airport ($20-40 each way), checked bag fees ($30-35 per bag), and the cost of meals at the airport. These can add $100-200 to the apparent flight cost."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trip.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Fly vs Drive Calculator", "item": "https://trip.wiseclick.site/fly-vs-drive-calculator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+        </svg>
+        TripCalc
+      </a>
+      <nav class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>Fly vs Drive Calculator</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>Fly vs Drive Calculator</h1>
+      <p class="subtitle">Compare the true cost of flying versus driving including gas, tolls, parking, airfare, baggage, and time.</p>
+
+      <div class="calc-tool">
+        <form class="calc-form" id="flydrive-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="distance">Distance (miles)</label>
+            <input type="number" id="distance" value="500" min="1" max="10000">
+          </div>
+          <div class="form-group">
+            <label for="fly-cost">Flying Cost per Person ($)</label>
+            <input type="number" id="fly-cost" value="250" min="0" step="10">
+          </div>
+          <div class="form-group">
+            <label for="num-travelers">Number of Travelers</label>
+            <input type="number" id="num-travelers" value="2" min="1" max="6">
+          </div>
+          <div class="form-group">
+            <label for="mpg">Vehicle MPG</label>
+            <input type="number" id="mpg" value="25" min="5" max="60">
+          </div>
+          <div class="form-group">
+            <label for="gas-price">Gas Price per Gallon ($)</label>
+            <input type="number" id="gas-price" value="3.50" min="0.5" max="10" step="0.1">
+          </div>
+          <div class="form-group">
+            <label for="driving-days">Driving Days (overnight stops)</label>
+            <input type="number" id="driving-days" value="1" min="0" max="10">
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculateFlyDrive()">Compare Costs</button>
+        </form>
+
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label" id="winner-label">Recommended Option</div>
+            <div class="value" id="winner-text">-</div>
+          </div>
+
+          <div class="comparison-grid">
+            <div class="comparison-column" id="drive-column">
+              <h4>Driving</h4>
+              <div class="metric"><span>Gas</span><span class="val" id="d-gas">$0</span></div>
+              <div class="metric"><span>Tolls</span><span class="val" id="d-tolls">$0</span></div>
+              <div class="metric"><span>Parking</span><span class="val" id="d-parking">$0</span></div>
+              <div class="metric"><span>Hotels</span><span class="val" id="d-hotels">$0</span></div>
+              <div class="metric"><span>Meals on Road</span><span class="val" id="d-meals">$0</span></div>
+              <div class="metric" style="border-top:1px solid var(--border);padding-top:0.5rem;margin-top:0.25rem"><strong>Total Drive Cost</strong><span class="val" id="d-total">$0</span></div>
+              <div class="metric"><span>Drive Time</span><span class="val" id="d-time">-</span></div>
+            </div>
+            <div class="comparison-column" id="fly-column">
+              <h4>Flying</h4>
+              <div class="metric"><span>Airfare</span><span class="val" id="f-airfare">$0</span></div>
+              <div class="metric"><span>Checked Bags</span><span class="val" id="f-bags">$0</span></div>
+              <div class="metric"><span>Airport Parking</span><span class="val" id="f-parking">$0</span></div>
+              <div class="metric"><span>To/From Airport</span><span class="val" id="f-transport">$0</span></div>
+              <div class="metric" style="border-top:1px solid var(--border);padding-top:0.5rem;margin-top:0.25rem"><strong>Total Fly Cost</strong><span class="val" id="f-total">$0</span></div>
+              <div class="metric"><span>Fly Time (incl. airport)</span><span class="val" id="f-time">-</span></div>
+            </div>
+          </div>
+
+          <div class="result-details" style="margin-top:1rem">
+            <div class="result-item">
+              <div class="label">You Save by Driving</div>
+              <div class="value" id="savings">$0</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Time Difference</div>
+              <div class="value" id="time-diff">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">✈️</div>
+            <h3>Find the Cheapest Flights for Your Route</h3>
+            <p>Compare prices from hundreds of airlines and booking sites. Set price alerts and save on your next flight.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Search Flight Deals</a>
+            <p class="affiliate-disclosure">We may earn a commission if you book through our link. This does not affect our calculator results.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>When to Fly vs Drive</h2>
+          <p>Deciding whether to fly or drive involves more than comparing the price of a plane ticket to the cost of gas. The true cost of driving includes fuel, tolls, parking, overnight hotels, meals on the road, and wear on your vehicle. The true cost of flying includes airfare for every traveler, checked bag fees, airport parking, and transportation to and from the airport at both ends. This calculator adds up all those costs so you can make an apples-to-apples comparison.</p>
+          <p>For solo travelers, flying is usually cheaper for trips over 400-600 miles, once you account for all the ancillary driving costs. But for families or groups, the math shifts dramatically because flight costs multiply per person while driving costs stay nearly fixed. A family of four driving 500 miles might spend $150 total on gas and tolls, compared to $1,000 or more on four plane tickets. At that point, the decision often comes down to how much your time is worth.</p>
+          <p>Time is the other major factor. A 500-mile drive takes roughly 8 hours of actual driving, plus stops. Flying the same distance might involve 2 hours of airport time on each end plus an hour-long flight — about 5 hours door-to-door. But if your destination is not near a major airport, the drive might actually be faster when you factor in connecting flights and ground transportation.</p>
+          <p>Consider also the experience: driving offers flexibility to stop along the way, pack as much luggage as you want, and avoid airport security lines. Flying offers speed and convenience, especially for long distances. The best choice depends on your priorities, budget, group size, and the nature of your trip.</p>
+        </div>
+        <div class="seo-block">
+          <h2>True Cost Breakdown</h2>
+          <h3>Driving Costs</h3>
+          <ul>
+            <li><strong>Gas</strong> — (distance / MPG) x price per gallon</li>
+            <li><strong>Tolls</strong> — approximately $0.10 per mile on tolled roads</li>
+            <li><strong>Parking</strong> — $15/day at your destination</li>
+            <li><strong>Hotels</strong> — $100/night for each driving day (overnight stops)</li>
+            <li><strong>Meals</strong> — $40/person/day for food on the road</li>
+          </ul>
+          <h3>Flying Costs</h3>
+          <ul>
+            <li><strong>Airfare</strong> — ticket price x number of travelers</li>
+            <li><strong>Checked bags</strong> — $35 per traveler</li>
+            <li><strong>Airport parking</strong> — $12/day while at destination</li>
+            <li><strong>Airport transport</strong> — $30 total (both ends)</li>
+          </ul>
+          <h3>Time Comparison</h3>
+          <ul>
+            <li><strong>Drive time</strong> — distance / 60 mph average</li>
+            <li><strong>Fly time</strong> — ~4 hours door-to-door (including airport arrival, security, flight, and ground transport)</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>Is it cheaper to fly or drive?</h3>
+          <p>It depends on the distance, number of travelers, and current gas and airfare prices. For solo travelers on trips over 500 miles, flying is often cheaper. For families or groups, driving becomes more cost-effective because flight costs scale per person while driving costs stay roughly fixed. Use the calculator above for an exact comparison.</p>
+          <h3>At what distance is it better to fly than drive?</h3>
+          <p>For solo travelers, flying usually becomes cheaper around 400-600 miles. For a family of four, the break-even point is often 800-1000 miles. Beyond that, factor in time value — a 12-hour drive versus a 4-hour flight experience.</p>
+          <h3>What hidden costs should I consider when driving?</h3>
+          <p>Beyond gas, factor in tolls (about $0.10 per mile), parking at your destination ($10-25/day), hotel stays for long drives ($80-120/night), extra meals on the road ($30-50/person/day), and vehicle wear and tear. These can add significantly to the perceived cost of driving.</p>
+          <h3>What hidden costs should I consider when flying?</h3>
+          <p>Beyond airfare, factor in airport parking ($8-15/day), transportation to and from the airport ($20-40 each way), checked bag fees ($30-35 per bag), and the cost of meals at the airport. These can add $100-200 to the apparent flight cost.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <div class="cross-site-links"><span>More WiseClick Tools:</span><a href="https://wiseclick.site/" target="_blank" rel="noopener">Portal</a><a href="https://calc.wiseclick.site/" target="_blank" rel="noopener">Finance</a><a href="https://insure.wiseclick.site/" target="_blank" rel="noopener">Insurance</a><a href="https://fit.wiseclick.site/" target="_blank" rel="noopener">Health</a><a href="https://game.wiseclick.site/" target="_blank" rel="noopener">Gaming</a></div>
+      <p class="footer-copy">&copy; 2026 WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  function calculateFlyDrive() {
+    const distance = parseFloat(document.getElementById('distance').value);
+    const flyCostPerPerson = parseFloat(document.getElementById('fly-cost').value);
+    const travelers = parseInt(document.getElementById('num-travelers').value);
+    const mpg = parseFloat(document.getElementById('mpg').value);
+    const gasPrice = parseFloat(document.getElementById('gas-price').value);
+    const drivingDays = parseInt(document.getElementById('driving-days').value);
+
+    if (!distance || !flyCostPerPerson || !travelers || !mpg || !gasPrice) return;
+
+    // Driving costs
+    const gas = (distance / mpg) * gasPrice;
+    const tolls = distance * 0.10;
+    const parking = 15 * Math.ceil(distance / 300); // days at destination ~ 1 day per 300 miles
+    const hotels = 100 * drivingDays;
+    const meals = 40 * travelers * drivingDays;
+    const totalDrive = gas + tolls + parking + hotels + meals;
+
+    // Flying costs - estimate trip days from distance
+    const tripDays = Math.max(2, Math.ceil(distance / 200));
+    const airfare = flyCostPerPerson * travelers;
+    const bags = 35 * travelers;
+    const airportParking = 12 * tripDays;
+    const airportTransport = 30;
+    const totalFly = airfare + bags + airportParking + airportTransport;
+
+    // Time
+    const driveHours = distance / 60;
+    const flyHours = 4;
+    const timeDiff = driveHours - flyHours;
+
+    const winner = totalDrive <= totalFly ? 'drive' : 'fly';
+    const savings = Math.abs(totalDrive - totalFly);
+
+    const fmt = v => '$' + v.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    const fmtTime = h => {
+      const hours = Math.floor(h);
+      const mins = Math.round((h - hours) * 60);
+      return hours + 'h ' + mins + 'm';
+    };
+
+    // Drive breakdown
+    document.getElementById('d-gas').textContent = fmt(gas);
+    document.getElementById('d-tolls').textContent = fmt(tolls);
+    document.getElementById('d-parking').textContent = fmt(parking);
+    document.getElementById('d-hotels').textContent = fmt(hotels);
+    document.getElementById('d-meals').textContent = fmt(meals);
+    document.getElementById('d-total').textContent = fmt(totalDrive);
+    document.getElementById('d-time').textContent = fmtTime(driveHours);
+
+    // Fly breakdown
+    document.getElementById('f-airfare').textContent = fmt(airfare);
+    document.getElementById('f-bags').textContent = fmt(bags);
+    document.getElementById('f-parking').textContent = fmt(airportParking);
+    document.getElementById('f-transport').textContent = fmt(airportTransport);
+    document.getElementById('f-total').textContent = fmt(totalFly);
+    document.getElementById('f-time').textContent = fmtTime(flyHours);
+
+    // Winner highlight
+    const driveCol = document.getElementById('drive-column');
+    const flyCol = document.getElementById('fly-column');
+    driveCol.classList.remove('winner');
+    flyCol.classList.remove('winner');
+
+    if (winner === 'drive') {
+      driveCol.classList.add('winner');
+      document.getElementById('winner-label').textContent = 'Recommended: Driving';
+      document.getElementById('winner-text').textContent = 'Save ' + fmt(savings) + ' by driving';
+      document.getElementById('savings').textContent = fmt(savings);
+    } else {
+      flyCol.classList.add('winner');
+      document.getElementById('winner-label').textContent = 'Recommended: Flying';
+      document.getElementById('winner-text').textContent = 'Save ' + fmt(savings) + ' by flying';
+      document.getElementById('savings').textContent = fmt(savings);
+    }
+
+    document.getElementById('time-diff').textContent = winner === 'drive'
+      ? 'Drive takes ' + fmtTime(timeDiff) + ' longer'
+      : 'Drive takes ' + fmtTime(timeDiff) + ' longer';
+
+    document.getElementById('results').classList.add('visible');
+  }
+
+  calculateFlyDrive();
+  </script>
+</body>
+</html>
